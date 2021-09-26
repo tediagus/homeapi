@@ -1,0 +1,51 @@
+[
+  {
+    "title": "Top Départ",
+    "description": "Les Pays de la Loire !! Cinq ans que nous nous sommes installés. A Sainte Luce sur loire Une petite ville calme à 10min minutes de Nantes. Pour faire simple et rapide la région nous plait et nous avons prévu d'y rester et donc d'avoir notre chez nous. Petites annonces, recherche de terrain , coups de fil par-ci par-là. Et coup de chance une opportunitée",
+    "medias": [],
+    "comments": [],
+    "dateCreated": "2021-06-18",
+    "dateUpdated": "2021-06-19",
+    "id": 1
+  },
+  {
+    "title": "Appel à la famille",
+    "description": " Quel obène, on les premiers sur le coup mais il faut faire vite en plein centre ville proche ecole, et commerce, bus a 2 min etc... \n Non je n'ai pas copié une annonce. On demande conseille autour de nous et on valide l'achat du terrain ",
+    "medias": [
+      {
+        "type": "image",
+        "source": "position.png"
+      }
+    ],
+    "dateCreated": "2021-06-26",
+    "dateUpdated": "2021-06-26",
+    "id": 2
+  },
+  {
+    "title": "On active les demarches",
+    "description": "Recherche de financement, on passe par une société de courtage. Maison sur mesure: [Ha ! pardon] ce fut un mythe... On doit penser la maison afin de déposer le permis. Obtenir le prêt etc... Je ne sais pas si c'est de la chance mais pour l'instance tout suis sont court dans les délais convenu. C'est la fin de l'année les fêtes approche et y a plus qu'a attendre.",
+    "medias": [
+      {
+        "type": "image",
+        "source": "IMG_20200219_130051.jpg"
+      }
+    ],
+    "dateCreated": "2021-06-26",
+    "dateUpdated": "2021-06-26",
+    "id": 3
+  },
+  {
+    "title": "Y a plus qu ..... attendre ",
+    "description": "- Financement: check\n- Permis de construire : check!\n\nC'est partie pour deux mois d'attente pour l'obtention du permis. Puis la societe de courtage pour la mise en relation et la finalisation du dossier pour le financement. Fin Janvier tout est OK, permis accepté et une banque accepte de nous preter des sous pour le projet y a plus qu'à signer. Hélas les aleas commence ... Un virus qui ralenti tout  ",
+    "medias": [
+      {
+        "id": 1,
+        "type": "image/jpeg",
+        "source": "IMG_20191117_155814-d,2,3,4.IMG_20191117_155814.jpg"
+      }
+    ],
+    "dateCreated": "2021-07-17",
+    "dateUpdated": "2021-07-17",
+    "id": 4
+  }
+]
