@@ -18,7 +18,7 @@ import { editFileName, imageFileFilter } from '../lib/fileFunction';
 
 @Controller('events')
 export class EventsController {
-  constructor(private readonly eventsService: EventsService) {}
+  constructor(private readonly eventsService: EventsService) { }
 
   /* @Get(':id')
   findOne(@Param('id') id) {} */
@@ -39,8 +39,9 @@ export class EventsController {
     }),
   )
   create(@UploadedFiles() files: Array<any>, @Body() newEvent: CreateEventDto) {
-    this.eventsService.create(newEvent, files);
-    return {message:'Save OK'}
+    this.eventsService.create(newEvent, files).then(r => {
+      return { status: 'Ok' }
+    })
   }
 
   @Patch(':id')

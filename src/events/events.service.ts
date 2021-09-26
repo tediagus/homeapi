@@ -9,8 +9,8 @@ import { resolve } from 'path';
 import * as Events from '../data/events.json';
 import { CreateEventDto } from './dto/create-event.dto';
 import { iEvent } from './interfaces/event.interface';
-import   firebaseApp  from '../plugin/firebase'
-import { getFirestore, collection, getDocs, addDoc } from 'firebase/firestore/lite';
+import firebaseApp from '../plugin/firebase'
+import { getFirestore, collection, getDocs, addDoc, Timestamp } from 'firebase/firestore/lite';
 
 
 @Injectable()
@@ -18,18 +18,18 @@ export class EventsService {
   private readonly Events: iEvent[] = Events;
   private db;
 
-  constructor(){
+  constructor() {
     this.db = getFirestore(firebaseApp);
   }
 
-  
+
   /*   findOne() {} */
 
   async findAll() {
 
     const eventColl = collection(this.db, `/events`);
     const eventSnap = await getDocs(eventColl)
-    const eventList = eventSnap.docs.map((doc) => doc.data() as iEvent )
+    const eventList = eventSnap.docs.map((doc) => doc.data() as iEvent)
 
     return eventList;
   }
@@ -51,18 +51,16 @@ export class EventsService {
     }
 
     // add in data json file
-    const currentDate = new Date().toISOString().slice(0, 10);
+    const currentDate = Timestamp.fromDate(new Date());
 
     eventData.dateCreated = currentDate;
     eventData.dateUpdated = currentDate;
-  
-    try{
-      await addDoc(collection(getFirestore(), 'events'), eventData)
 
-    }catch(error){
+    try {
+      return await addDoc(collection(getFirestore(), 'events'), eventData)
+    } catch (error) {
       console.error('Error writting new event to fireStore', error)
     }
-
 
     // save Image data
     // this.Events.push(eventData);
@@ -97,7 +95,7 @@ export class EventsService {
       data.medias = eventData.medias;
     }
 
-    data.dateUpdated = new Date().toISOString().slice(0, 10);
+    data.dateUpdated = Timestamp.fromDate(new Date());
 
     await fs.writeFileSync(
       resolve('src/data/events.json'),
