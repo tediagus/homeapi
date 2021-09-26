@@ -57,7 +57,9 @@ export class EventsService {
     eventData.dateUpdated = currentDate;
 
     try {
-      return await addDoc(collection(getFirestore(), 'events'), eventData)
+
+      const docRef = await addDoc(collection(getFirestore(), 'events'), eventData)
+      return docRef.id
     } catch (error) {
       console.error('Error writting new event to fireStore', error)
     }
