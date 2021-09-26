@@ -38,10 +38,16 @@ export class EventsController {
       fileFilter: imageFileFilter,
     }),
   )
-  create(@UploadedFiles() files: Array<any>, @Body() newEvent: CreateEventDto) {
-    this.eventsService.create(newEvent, files).then(r => {
-      return { status: 'Ok', r }
-    })
+
+  async create(@UploadedFiles() files: Array<any>, @Body() newEvent: CreateEventDto) {
+    const result = await this.eventsService.create(newEvent, files)
+
+    if (result.length) {
+      return { status: 'OK' }
+    }
+    return { status: 'KO' }
+
+
   }
 
   @Patch(':id')
