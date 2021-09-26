@@ -59,7 +59,6 @@ export class EventsService {
 
     try {
       const docRef = await addDoc(collection(getFirestore(), 'events'), eventData)
-
       return docRef.id
     } catch (error) {
       console.error('Error writting new event to fireStore', error)

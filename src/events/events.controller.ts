@@ -39,13 +39,15 @@ export class EventsController {
     }),
   )
 
-  create(@UploadedFiles() files: Array<any>, @Body() newEvent: CreateEventDto) {
-    const result = this.eventsService.create(newEvent, files)
+  async create(@UploadedFiles() files: Array<any>, @Body() newEvent: CreateEventDto) {
+    const result = await this.eventsService.create(newEvent, files)
 
-    if (result) {
+    if (result.length) {
       return { status: 'OK' }
     }
     return { status: 'KO' }
+
+
   }
 
   @Patch(':id')
