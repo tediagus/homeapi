@@ -40,7 +40,7 @@ export class EventsController {
   )
   create(@UploadedFiles() files: Array<any>, @Body() newEvent: CreateEventDto) {
     this.eventsService.create(newEvent, files).then(r => {
-      return { status: 'Ok' }
+      return { status: 'Ok', r }
     })
   }
 
