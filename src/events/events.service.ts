@@ -39,8 +39,9 @@ export class EventsService {
       throw new BadRequestException();
     }
 
+    eventData.medias = [];
+
     if (files.length) {
-      eventData.medias = [];
       files.forEach((f, i) => {
         eventData.medias.push({
           id: i + 1,
@@ -57,8 +58,8 @@ export class EventsService {
     eventData.dateUpdated = currentDate;
 
     try {
-
       const docRef = await addDoc(collection(getFirestore(), 'events'), eventData)
+
       return docRef.id
     } catch (error) {
       console.error('Error writting new event to fireStore', error)
